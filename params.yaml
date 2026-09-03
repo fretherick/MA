@@ -1,0 +1,80 @@
+### Parameters for the project
+# Here we define all the parameters for the project
+# The parameters are divided into sections for better organization
+# Each section contains parameters related to a specific aspect of the project called stages (in dvc)
+# We then create experiments with a create_exp.py file for dvc and run them with different parameters
+# Then we export the experiment results to a csv file and analyze them with a jupyter notebook
+
+
+common:
+  verbose: true
+  dump: true
+  plot: false
+  save_plot: true
+  n_jobs: 1
+
+simulation_experiments:
+  hmm:
+    params:
+      k: 3
+      nb_paths: 100
+      len_path: 500
+      nb_states: 3
+      initial_state_prob: [0.554,0.319,0.127]
+      transition_matrix:
+        - [.9629, .0185, .0186]
+        - [.0618, .8764, .0618]
+        - [.1051, .1050, .7899]
+      means: [0.0123, .0000, -0.0157]
+      variances: [0.00120409, 0.0025, 0.00605284]
+      dt: 20
+      more_states: true,
+
+  simulation:
+    params:
+      windows: [5, 13]
+      nb_states: 3
+      eff_timesteps: 224  # = len_path - 2*max(windows)
+
+  signature:
+    depth: 2
+
+  clustering:
+    model: "jump" # Put here the model you want to use for clustering
+
+    som_jump:
+    # TODO: the som jump paramet is only defined in the som_jump.py file (0.1) and is not yet a hyperparameter
+      params:
+        map_size: [2, 1]
+        Tmax: 4.33752676631246
+        Tmin: 0.4980629901238591
+        batch_size: 512
+        iterations: 5010
+        lr: 0.00612170606578564
+        decay: "exponential"
+        dump_path: ./artifacts/simulation_experiments/
+
+    hmm:
+      params:
+        # hyperparameters for the hmmlearn gaussianhmm
+        covariance_type: "diag" # should be the right one
+        n_iter: 100
+        # random_state: 42
+    jump_model:
+      params:
+        jump_penalty: 0.01
+
+  output:
+    dump_path: ./data/simulation_experiments/
+    artifact_path: ./artifacts/simulation_experiments/
+    metrics_dump_path: ./metrics/
+
+
+# simulation_experiments_analysis:
+# Takes in the output of the simulation experiments and analyzes it
+# We want to create tables for the different length of path and differernt hmm parameters
+
+## TODOS
+# Replace features with signature feature
+# See if same or better than the proposed features, hopefully same
+# Move on to the real world data and define stages for dvc

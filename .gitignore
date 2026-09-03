@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Environments and local configuration
+.venv/
+venv/
+env/
+.env
+
+# Jupyter and tooling
+.ipynb_checkpoints/
+Notebooks (examples)/tmp/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# DVC local state and experiment scratch space
+.dvc/cache/
+.dvc/tmp/
+
+# Generated experiment outputs
+data/simulation_experiments/
+artifacts/simulation_experiments/
+metrics/metrics.json
+
+# Local data and serialized objects
+*.pkl
+*.pickle
+*.parquet
+*.pbz2
+
+# Logs and temporary files
+*.log
+*.tmp
+*.out
+*.run
+*.pid
+*.exchange
+*.msg

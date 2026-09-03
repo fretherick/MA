@@ -1,0 +1,85 @@
+schema: '2.0'
+stages:
+  simulation_experiments:
+    cmd: python -m src.simulation_experiments
+    deps:
+    - path: src/simulation_experiments.py
+      hash: md5
+      md5: e0446b5f71d84a8438d90671ad1ac818
+      size: 11913
+    params:
+      params.yaml:
+        simulation_experiments.clustering:
+          model: jump
+          som_jump:
+            params:
+              map_size:
+              - 2
+              - 1
+              Tmax: 4.33752676631246
+              Tmin: 0.4980629901238591
+              batch_size: 512
+              iterations: 5010
+              lr: 0.00612170606578564
+              decay: exponential
+              dump_path: C:/Users/frede/OneDrive/Desktop/Statistik Master/Semester
+                4/Thesis/Code/GitLab_Thesis/sigsom/codes/Simulations/results
+          hmm:
+            params:
+              covariance_type: diag
+              n_iter: 100
+          jump_model:
+            params:
+              jump_penalty: 0.01
+        simulation_experiments.hmm:
+          params:
+            k: 3
+            nb_paths: 100
+            len_path: 500
+            nb_states: 3
+            initial_state_prob:
+            - 0.554
+            - 0.319
+            - 0.127
+            transition_matrix:
+            - - 0.9629
+              - 0.0185
+              - 0.0186
+            - - 0.0618
+              - 0.8764
+              - 0.0618
+            - - 0.1051
+              - 0.105
+              - 0.7899
+            means:
+            - 0.0123
+            - 0.0
+            - -0.0157
+            variances:
+            - 0.00120409
+            - 0.0025
+            - 0.00605284
+            dt: 20
+            more_states: true,
+        simulation_experiments.simulation:
+          params:
+            windows:
+            - 5
+            - 13
+            nb_states: 2
+            eff_timesteps: 224
+    outs:
+    - path: artifacts/simulation_experiments/
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: data/simulation_experiments/
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: metrics/metrics.json
+      hash: md5
+      md5: 8cca2e5b9081e4cd14b7e5b1d359b4eb
+      size: 3046

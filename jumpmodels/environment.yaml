@@ -1,0 +1,46 @@
+name: jm-pack-base
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  # ──────────────────────────────
+  # Core interpreter and compilers
+  # ──────────────────────────────
+  - python=3.12        
+  - pip
+  # ──────────────────────────────
+  # Key data-science packages
+  # ──────────────────────────────
+  - numpy=2.1.1        
+  - pandas=2.2.3
+  - scipy=1.14.1
+  - scikit-learn=1.5.2
+  # ──────────────────────────────
+  # Visualization
+  # ──────────────────────────────
+  - matplotlib=3.9.2
+  # ──────────────────────────────
+  # Other Python libraries
+  # ──────────────────────────────
+  - pillow=10.4.0
+  - packaging=24.1
+  - pyparsing=3.1.4
+  - python-dateutil=2.9.0
+  - pytz=2024.1
+  - python-tzdata=2024.2
+  - tornado=6.4.1
+  - joblib=1.4.2
+  - threadpoolctl=3.5.0
+  - six=1.16.0
+  - cycler=0.12.1
+  - munkres=1.1.4
+  # ──────────────────────────────
+  # Build/packaging tools
+  # ──────────────────────────────
+  - setuptools
+  - wheel
+  # ──────────────────────────────
+  # Trust/CA‐certs
+  # ──────────────────────────────
+  - ca-certificates
+  - certifi

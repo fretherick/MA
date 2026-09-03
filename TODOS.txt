@@ -1,0 +1,4 @@
+- only fit best models and plots
+- move all scaling and all tranformation in SIGSOM folder
+- move pipline to SIGSOM
+- clean SOM source code

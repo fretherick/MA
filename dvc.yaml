@@ -1,0 +1,29 @@
+# here we define the stages of our pipeline
+# These will be run by dvc
+stages:
+
+
+  simulation_experiments:
+    cmd: python -m src.simulation_experiments
+    deps:
+        # No impute .pkl needed
+      - src/simulation_experiments.py
+    params:
+      - simulation_experiments.hmm
+      - simulation_experiments.simulation
+      - simulation_experiments.clustering
+    outs:
+      - data/simulation_experiments/
+      - artifacts/simulation_experiments/
+    metrics:
+      - metrics/metrics.json
+
+  # simulation_experiments_analysis:
+  #   cmd: python src/simulation_experiments_analysis.py
+  #   deps:
+  #     - params.yaml
+  #     - src/simulation_experiments_analysis.py
+  #   params:
+  #     - simulation_experiments_analysis:features
+  #   outs:
+  #     - data/simulation_experiments_analysis/
