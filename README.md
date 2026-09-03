@@ -3,6 +3,12 @@
 Code for experiments with signature features, self-organising maps, hidden
 Markov models, and jump models.
 
+## Example
+
+| SIGSOM | SIGSOM with jump model |
+| --- | --- |
+| ![Bitcoin SIGSOM example](assets/bitcoin.png) | ![Bitcoin SIGSOM jump-model example](assets/bitcoin_jump.png) |
+
 ## Repository layout
 
 ```text
